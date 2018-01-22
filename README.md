@@ -9,6 +9,6 @@ search for URLs of a given extensions, and sort list by response time
 
 # Setup
 
-You must use composer to fetch dependencies.
+You must use composer to fetch dependencies. [https://getcomposer.org/download/](https://getcomposer.org/download/)
 
 `php composer.phar update` or `composer update` in the project root.
