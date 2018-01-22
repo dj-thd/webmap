@@ -16,11 +16,11 @@ $dns_server = '8.8.8.8';
 $request_timeout = 20;
 
 $options = array(
-	'max_concurrent_requests' => 20,
+	'max_concurrent_requests' => 50,
 	'max_depth' => 5,
 	'silent' => true,
 	'headers' => array(
-		'User-Agent' => 'djthd/webmap 1.0'
+		'User-Agent' => 'dj.thd/webmap 1.0',
 	)
 );
 
@@ -48,7 +48,6 @@ $progress = new React\Stream\WritableResourceStream(STDERR, $loop);
 
 // Bootstrap and emit first request
 $webmap = new DjThd\WebmapCore($loop, $client, $progress, $output, $options);
-$webmap->emitRequest($base_url, 0);
-$webmap->run();
+$webmap->run(array('url' => $base_url, 'depth' => 0));
 
 $loop->run();
