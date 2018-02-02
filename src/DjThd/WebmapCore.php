@@ -37,6 +37,11 @@ class WebmapCore
 
 	public function emitRequest($url, $depth, $endCallback, $errorCallback)
 	{
+		if(is_string($this->options['exclude']) && preg_match($this->options['exclude'], $url)) {
+			call_user_func($endCallback);
+			return;
+		}
+
 		if($this->isProcessing($url) || $this->isProcessed($url)) {
 			call_user_func($endCallback);
 			return;

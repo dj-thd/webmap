@@ -19,6 +19,7 @@ $options = array(
 	'max_concurrent_requests' => 50,
 	'max_depth' => 5,
 	'silent' => true,
+	'exclude' => '/logout/i',
 	'headers' => array(
 		'User-Agent' => 'dj.thd/webmap 1.0',
 	)
